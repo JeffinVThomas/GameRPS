@@ -1,0 +1,58 @@
+package Programming;
+
+import java.util.Scanner;
+
+public class RockPapperScissor {
+	public static void main(String[] args) {
+		System.out.println("====Rock Papper Scissor====");
+		System.out.println("==Game Starts!!==");
+		String arr[]= {"Rock","Papper","Scissor"};
+		int p1=0,p2=0;
+		Scanner ip=new Scanner(System.in);
+		Scanner ip1=new Scanner(System.in);
+		System.out.println("Enter Player Name: ");
+		String player1=ip1.next();
+		Scanner maxpoint=new Scanner(System.in);
+		System.out.println("Enter the max point to win: ");
+		int max=maxpoint.nextInt();
+		int count=1;
+		while(true)
+		{
+			System.out.println("Round: "+count);
+			String value1=ip.next();
+			int n=(int)(Math.random()*3);
+			String value2=arr[n];
+				
+			System.out.println(player1+": "+value1);
+			System.out.println("Computer: "+value2);
+			count++;
+			if(value1.equals("Scissor")&&value2.equals("Papper")||value1.equals("Rock")&&value2.equals("Scissor")||value1.equals("Papper")&&value2.equals("Rock"))
+			{
+				p1++;
+				System.out.println(player1+" won this round");
+			}
+			else if(value2.equals("Scissor")&&value1.equals("Papper")||value2.equals("Rock")&&value1.equals("Scissor")||value2.equals("Papper")&&value1.equals("Rock"))
+			{
+				p2++;
+				System.out.println("Computer won this round");
+			}
+			else
+			{
+				System.out.println("Draw...!!");
+			}
+			System.out.println("====Points====");
+			System.out.println(player1+": "+p1);
+			System.out.println("Computer: "+p2);
+			if(p1==max)
+			{
+				System.out.println(player1+" Won the Game.");
+				break;
+			}
+			if(p2==max)
+			{
+				System.out.println("Computer Won the Game.");
+				break;
+			}
+		}
+	}
+}
